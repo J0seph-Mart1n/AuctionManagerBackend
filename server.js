@@ -32,7 +32,7 @@ app.get('/api/health', (req, res) => {
 app.get('/api/items', async (req, res) => {
   try {
     const items = await prisma.item.findMany({
-      orderBy: { id: 'desc' }
+      orderBy: { id: 'asc' }
     });
     res.json(items);
   } catch (error) {
@@ -87,7 +87,7 @@ app.delete('/api/items/:id', async (req, res) => {
 app.get('/api/sales', async (req, res) => {
   try {
     const sales = await prisma.sale.findMany({
-      orderBy: { createdAt: 'desc' }
+      orderBy: { createdAt: 'asc' }
     });
     res.json(sales);
   } catch (error) {
